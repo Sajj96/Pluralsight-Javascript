@@ -1,0 +1,21 @@
+environment:
+    matrix:
+    #node.js
+    - nodejs_version: "12"
+
+#Install scripts(runs after repo clone)
+install:
+    - ps: Install-Product node $env:nodejs_version
+    #install modules
+    - npm install
+
+#Post install test scripts
+test-script:
+    #Output useful for debugging 
+    - node --version
+    - npm --version
+    #run test
+    - npm test
+
+#Dont actually build
+build: off
