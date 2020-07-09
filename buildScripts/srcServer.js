@@ -14,6 +14,17 @@ app.use(require('webpack-dev-middleware')(compiler,{
   publicPath: config.output.publicPath
 }))
 
+app.get('/users', function(req, res){
+  res.json([
+    {
+      "id": 1,
+      "firstName": "Sajjad",
+      "lastName": "Abuu",
+      "email": "sajjad@gmail.com"
+    }
+  ])
+})
+
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
